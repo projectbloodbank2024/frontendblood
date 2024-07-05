@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 //routes
 // 1 test route
@@ -40,7 +40,7 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 // statis routes ==> '/client/build/index.html'
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./build/index.html"));
 });
 
 const PORT = process.env.PORT || 8080;
